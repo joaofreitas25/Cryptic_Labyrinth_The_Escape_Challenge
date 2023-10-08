@@ -65,10 +65,13 @@ public class timer : MonoBehaviour
     {
         if(minutos == 1)
         {
-            statusportoes = true;
-            print("true");
-            
+            print("Abre");
+            OpenP.Invoke();            
         }
-        
+        if (minutos == 2)
+        {
+            print("Fecha");
+            CloseP.Invoke();
+        }
     }
 }
