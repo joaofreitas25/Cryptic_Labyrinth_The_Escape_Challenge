@@ -18,6 +18,7 @@ public class timer : MonoBehaviour
     private bool statusportoes = false;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
+    public bool sleep;
 
 
     void Update()
@@ -73,5 +74,21 @@ public class timer : MonoBehaviour
             print("Fecha");
             CloseP.Invoke();
         }
+    }
+
+    public void dormir()
+    {
+        sleep = true;
+        if (sleep == true)
+        {
+            if(minutos>20 || minutos<6)
+            {
+                minutos = 8;
+                currentTime = 0;
+                sleep = false;
+            }
+        }
+
+
     }
 }
