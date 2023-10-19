@@ -18,7 +18,10 @@ public class timer : MonoBehaviour
     private bool statusportoes = false;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
-    public bool sleep;
+    private bool sleep;
+    public UnityEvent OpenInv;
+    public UnityEvent CloseInv;
+    private bool inv;
 
 
     void Update()
@@ -39,6 +42,7 @@ public class timer : MonoBehaviour
         }
         Portoes();
         Morte();
+        Invmanager();
         displayHp.text = "HP : " + hp.ToString();
         displayHunger.text = "Hunger : " + hunger.ToString();
         
@@ -88,7 +92,27 @@ public class timer : MonoBehaviour
                 sleep = false;
             }
         }
-
-
     }
+    public void Invmanager()
+    {
+        inv = false;
+        if(inv == false)
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                OpenInv.Invoke();
+                inv = true;
+            }
+        }
+        if (inv == true)
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                CloseInv.Invoke();
+                inv = false;
+            }
+        }
+    }
+
+
 }
