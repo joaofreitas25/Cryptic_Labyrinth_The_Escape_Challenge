@@ -22,7 +22,6 @@ public class Cama : MonoBehaviour
             {
 
                 dormir.Invoke();
-                print("dormir");
                 cama = false;
             }
         }
