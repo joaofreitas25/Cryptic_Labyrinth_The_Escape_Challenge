@@ -10,6 +10,7 @@ public class timer : MonoBehaviour
     private float timeMultiplier = 1800;
 
     private float starthour = 8.50f;
+    private float startcount = 0;
 
     public TextMeshProUGUI timeText;
 
@@ -26,6 +27,7 @@ public class timer : MonoBehaviour
     public TMP_Text displayHunger;
     private float displayText;
     private DateTime currentTime;
+    private DateTime counttime;
     private int hp = 100;
     private int hunger = 1;
     public UnityEvent OpenP;
@@ -33,12 +35,13 @@ public class timer : MonoBehaviour
     private bool sleep= false;
     public UnityEvent OpenInv;
     public UnityEvent CloseInv;
-    private bool inv;
+    private bool inv = false;
 
 
     private void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(starthour);
+        counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
@@ -51,6 +54,16 @@ public class timer : MonoBehaviour
         Portoes();
         Morte();
         Invmanager();
+        counttime = counttime.AddSeconds(Time.deltaTime * timeMultiplier);
+        if (hunger == 0) hunger = 0;
+        else
+        {
+            if (counttime.Hour == 1)
+            {
+                hunger -= 1;
+                counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
+            }
+        }
         displayHp.text = "HP : " + hp.ToString();
         displayHunger.text = "Hunger : " + hunger.ToString();
         
@@ -66,9 +79,13 @@ public class timer : MonoBehaviour
         }
         else
         {
-            if (currentTime.Hour /2 == 0)
+            if (hunger == 0)
             {
-                hp -= 1;
+                if (counttime.Hour == 1)
+                {
+                    hp -= 1;
+                    counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
+                }
             }
         }
         
@@ -79,7 +96,7 @@ public class timer : MonoBehaviour
     {
 
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        dormir();
+        
         if (timeText != null)
         {
             timeText.text = currentTime.ToString("HH:mm");
@@ -117,23 +134,26 @@ public class timer : MonoBehaviour
     }
     public void Invmanager()
     {
-        inv = false;
+        
         if(inv == false)
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
                 OpenInv.Invoke();
                 inv = true;
+                Debug.Log(inv);
             }
         }
         if (inv == true)
         {
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 CloseInv.Invoke();
                 inv = false;
+                Debug.Log(inv);
             }
         }
+
     }
 
     private void rotateSun()
