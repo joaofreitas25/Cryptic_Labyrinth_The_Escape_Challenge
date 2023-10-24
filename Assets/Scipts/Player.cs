@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform playerCameraTransform;
 
-    [SerializeField]
-    private GameObject pickUpUI;
+    //[SerializeField]
+    //private GameObject pickUpUI;
 
  
 
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         if(hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
-            pickUpUI.SetActive(false);
+            //pickUpUI.SetActive(false);
         }
         if (inHandItem != null)
         {
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(playerCameraTransform.position,playerCameraTransform.forward,out hit, hitRange, pickableLayerMask))
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
-            pickUpUI.SetActive(true);
+            //pickUpUI.SetActive(true);
         }
         
        
