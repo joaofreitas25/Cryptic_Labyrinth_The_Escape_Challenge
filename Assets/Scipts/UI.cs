@@ -36,7 +36,7 @@ public class timer : MonoBehaviour
     public UnityEvent OpenInv;
     public UnityEvent CloseInv;
     private bool inv = false;
-
+    private bool takedmg=false;
 
     private void Start()
     {
@@ -107,12 +107,12 @@ public class timer : MonoBehaviour
 
     private void Portoes()
     {
-        if(currentTime.Hour == 1)
+        if(currentTime.Hour == 9)
         {
             print("Abre");
             OpenP.Invoke();            
         }
-        if (currentTime.Hour == 2)
+        if (currentTime.Hour == 15)
         {
             print("Fecha");
             CloseP.Invoke();
@@ -190,6 +190,16 @@ public class timer : MonoBehaviour
             diference += TimeSpan.FromHours(24);
         }
         return diference;
+    }
+
+    public void Takedmg()
+    {
+        takedmg = true;
+        if (takedmg == true)
+        {
+            hp -= 20;
+            takedmg=false;
+        }
     }
 
 
