@@ -106,4 +106,8 @@ public class Player : MonoBehaviour
         
        
     }
+    public void a()
+    {
+        Debug.Log("a");
+    }
 }

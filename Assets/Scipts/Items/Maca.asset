@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4ebe3214220c44a6fd6621d0f1b2e, type: 3}
   m_Name: Maca
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4301772977869341504, guid: 5fb57e3c08d0d9c43b3346005f4ad30e, type: 3}
+  prefab: {fileID: 193841085419405173, guid: 64c531763662d304e95629cace3cbdc8, type: 3}
   type: 0
   description: 
