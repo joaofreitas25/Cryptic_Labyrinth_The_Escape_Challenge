@@ -131,7 +131,9 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+            _mainCamera.transform.position = CinemachineCameraTarget.transform.position;
+            _mainCamera.transform.rotation = CinemachineCameraTarget.transform.rotation;
+            CameraRotation();
 		}
 
 		private void GroundedCheck()
@@ -284,7 +286,7 @@ namespace StarterAssets
 		private void Animation()
 		{
 			anim.SetFloat("speed", _speed);
-			anim.SetFloat("jump", _jumpTimeoutDelta	);
+		
 		}
 	}
 }

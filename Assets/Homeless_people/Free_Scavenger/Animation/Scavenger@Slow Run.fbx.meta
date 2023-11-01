@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9decd4a0c8d6f3e4d9d756cf85f327d3
+guid: 3d56834412c07c34ba379043ff0844af
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Running
+      name: Slow Run
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
@@ -44,8 +44,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -62,11 +62,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
+      name: SRun
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 21
+      lastFrame: 22
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -549,25 +549,25 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Scavenger@Running(Clone)
+    - name: Scavenger@Slow Run(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: -0.034221087, y: 0.025004921, z: -0.01232157, w: 0.99902546}
+      rotation: {x: -0.14768958, y: -0.036004484, z: 0.06088364, w: 0.9865012}
       scale: {x: 1, y: 1, z: 1}
     - name: Scavenger_mesh_body
-      parentName: Scavenger@Running(Clone)
+      parentName: Scavenger@Slow Run(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Scavenger_mesh_backpack
-      parentName: Scavenger@Running(Clone)
+      parentName: Scavenger@Slow Run(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Scavenger_root
-      parentName: Scavenger@Running(Clone)
-      position: {x: 0.028292691, y: -0.08966423, z: -0.13133597}
-      rotation: {x: 0.047111183, y: -0.024843791, z: 0.012665953, w: 0.99850035}
+      parentName: Scavenger@Slow Run(Clone)
+      position: {x: -0.12601948, y: -0.110468216, z: -0.32856902}
+      rotation: {x: 0.16041, y: 0.0352131, z: -0.06132074, w: 0.98451436}
       scale: {x: 1, y: 1, z: 1}
     - name: Scavenger_
       parentName: Scavenger_root
@@ -576,259 +576,259 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Scavenger_ Pelvis
       parentName: Scavenger_
-      position: {x: 0.017546212, y: 0.019476563, z: 0.15848358}
+      position: {x: -0.1928074, y: -0.08346513, z: 0.29901877}
       rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
-      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+      scale: {x: 1.0000001, y: 1, z: 1}
     - name: Scavenger_ R Thigh
       parentName: Scavenger_ Pelvis
       position: {x: -0.00000015258789, y: -0.0000000667572, z: -0.07877096}
       rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-      scale: {x: 0.9999997, y: 1.0000001, z: 0.99999964}
+      scale: {x: 0.99999976, y: 1.0000001, z: 0.99999976}
     - name: Scavenger_ R Calf
       parentName: Scavenger_ R Thigh
       position: {x: -0.3938543, y: -0.000000019073486, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 0.9999999, z: 0.9999999}
+      scale: {x: 1.0000002, y: 1.0000007, z: 1.0000004}
     - name: Scavenger_ R Foot
       parentName: Scavenger_ R Calf
       position: {x: -0.40708578, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
     - name: Scavenger_ R Toe0
       parentName: Scavenger_ R Foot
       position: {x: -0.07196295, y: 0.13880074, z: -0.000000009536743}
       rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
-      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1.0000002}
     - name: Scavenger_ L Thigh
       parentName: Scavenger_ Pelvis
       position: {x: 0.000000076293944, y: 0.00000014305114, z: 0.07877094}
       rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-      scale: {x: 0.9999999, y: 1, z: 1}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1}
     - name: Scavenger_ L Calf
       parentName: Scavenger_ L Thigh
       position: {x: -0.3938543, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000005, y: 1.0000008, z: 1.0000001}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1.0000002}
     - name: Scavenger_ L Foot
       parentName: Scavenger_ L Calf
       position: {x: -0.40708575, y: 0, z: 0.000000011920928}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000002}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000002}
     - name: Scavenger_ L Toe0
       parentName: Scavenger_ L Foot
       position: {x: -0.071962975, y: 0.13880076, z: -0.000000007152557}
       rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
     - name: Scavenger_ Spine
       parentName: Scavenger_ Pelvis
       position: {x: -0.09082359, y: -0.024287863, z: -0.0000054368143}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000005}
     - name: Scavenger_ Spine1
       parentName: Scavenger_ Spine
       position: {x: -0.20481086, y: -0.00016222477, z: -0.000015525222}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000008, y: 1.0000011, z: 1.0000007}
+      scale: {x: 1.0000007, y: 1.0000005, z: 1.0000006}
     - name: Scavenger_ R Clavicle
       parentName: Scavenger_ Spine1
       position: {x: -0.16622749, y: -0.026684007, z: -0.027569866}
       rotation: {x: 0.7071068, y: -0.000000030908623, z: 0.7071068, w: -0.000000030908623}
-      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+      scale: {x: 1.0000004, y: 1.0000001, z: 0.99999994}
     - name: Scavenger_ R UpperArm
       parentName: Scavenger_ R Clavicle
       position: {x: -0.11776182, y: 0.000000009536743, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+      scale: {x: 0.9999997, y: 0.9999996, z: 0.99999994}
     - name: Scavenger_ R Forearm
       parentName: Scavenger_ R UpperArm
       position: {x: -0.2605316, y: 0, z: -0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 0.9999998, z: 1.0000001}
+      scale: {x: 0.99999994, y: 1.0000004, z: 0.9999998}
     - name: Scavenger_ R Hand
       parentName: Scavenger_ R Forearm
       position: {x: -0.26202828, y: 0.000000038146972, z: 0.000000038146972}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+      scale: {x: 0.9999998, y: 1.0000002, z: 0.99999994}
     - name: Scavenger_ R Finger0
       parentName: Scavenger_ R Hand
       position: {x: -0.0033760832, y: 0.0058034514, z: 0.02903507}
       rotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
-      scale: {x: 1, y: 1.0000007, z: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000004}
     - name: Scavenger_ R Finger01
       parentName: Scavenger_ R Finger0
       position: {x: -0.036285665, y: 0, z: -0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1.0000006, z: 1.000001}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000008}
     - name: Scavenger_ R Finger02
       parentName: Scavenger_ R Finger01
       position: {x: -0.026929969, y: -0.000000076293944, z: -0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 0.9999997, z: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999998}
     - name: Scavenger_ R Finger2
       parentName: Scavenger_ R Hand
       position: {x: -0.06999142, y: -0.0051408387, z: 0.002030487}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
     - name: Scavenger_ R Finger21
       parentName: Scavenger_ R Finger2
       position: {x: -0.036158446, y: 0, z: 0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000005, y: 1.0000002, z: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
     - name: Scavenger_ R Finger22
       parentName: Scavenger_ R Finger21
       position: {x: -0.025177307, y: 0.000000076293944, z: 0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.9999998}
     - name: Scavenger_ R Finger1
       parentName: Scavenger_ R Hand
       position: {x: -0.06842563, y: -0.0048760986, z: 0.023515243}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.9999997, y: 1, z: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
     - name: Scavenger_ R Finger11
       parentName: Scavenger_ R Finger1
       position: {x: -0.03350975, y: -0.000000038146972, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000006, y: 1, z: 1.0000005}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
     - name: Scavenger_ R Finger12
       parentName: Scavenger_ R Finger11
       position: {x: -0.026355667, y: -0.000000038146972, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
     - name: Scavenger_ R Finger3
       parentName: Scavenger_ R Hand
       position: {x: -0.057266083, y: -0.0044006347, z: -0.016517868}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.9999997, y: 0.9999998, z: 1}
+      scale: {x: 1.0000002, y: 1, z: 1}
     - name: Scavenger_ R Finger31
       parentName: Scavenger_ R Finger3
       position: {x: -0.036500473, y: 0.000000076293944, z: -0.000000076293944}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000001}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
     - name: Scavenger_ R Finger32
       parentName: Scavenger_ R Finger31
       position: {x: -0.02425537, y: -0.000000019073486, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
     - name: Scavenger_ R Finger4
       parentName: Scavenger_ R Hand
       position: {x: -0.05485912, y: -0.0010264587, z: -0.03432739}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 0.99999994, z: 0.9999998}
+      scale: {x: 0.9999998, y: 1, z: 1}
     - name: Scavenger_ R Finger41
       parentName: Scavenger_ R Finger4
       position: {x: -0.028733024, y: -0.000000057220458, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000004, y: 1, z: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
     - name: Scavenger_ R Finger42
       parentName: Scavenger_ R Finger41
       position: {x: -0.01723072, y: -0.000000019073486, z: -0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.99999994, y: 1.0000002, z: 1}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
     - name: Scavenger_ L Clavicle
       parentName: Scavenger_ Spine1
       position: {x: -0.16622749, y: -0.02668416, z: 0.027569668}
       rotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
-      scale: {x: 0.9999997, y: 0.9999997, z: 0.9999997}
+      scale: {x: 0.9999997, y: 0.99999994, z: 0.99999994}
     - name: Scavenger_ L UpperArm
       parentName: Scavenger_ L Clavicle
       position: {x: -0.11776185, y: 0, z: 0.00000015258789}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 1, z: 1.0000004}
+      scale: {x: 1, y: 1, z: 1.0000005}
     - name: Scavenger_ L Forearm
       parentName: Scavenger_ L UpperArm
       position: {x: -0.2605317, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 0.9999996, z: 1.0000001}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.99999994}
     - name: Scavenger_ L Hand
       parentName: Scavenger_ L Forearm
       position: {x: -0.26202828, y: 0.000000038146972, z: 0}
       rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
-      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000005}
+      scale: {x: 0.9999997, y: 0.99999994, z: 0.9999997}
     - name: Scavenger_ L Finger0
       parentName: Scavenger_ L Hand
       position: {x: -0.003376007, y: 0.0058034514, z: -0.02903507}
       rotation: {x: 0, y: 0.3826835, z: 0, w: -0.9238795}
-      scale: {x: 1.0000007, y: 1.000001, z: 1.0000002}
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: Scavenger_ L Finger01
       parentName: Scavenger_ L Finger0
       position: {x: -0.03628578, y: -0.000000019073486, z: -0.000000009536743}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.99999994}
     - name: Scavenger_ L Finger02
       parentName: Scavenger_ L Finger01
       position: {x: -0.026930084, y: 0, z: 0.000000009536743}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000001}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
     - name: Scavenger_ L Finger2
       parentName: Scavenger_ L Hand
       position: {x: -0.06999138, y: -0.005140877, z: -0.002030487}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000004}
+      scale: {x: 1.0000004, y: 0.99999994, z: 0.9999998}
     - name: Scavenger_ L Finger21
       parentName: Scavenger_ L Finger2
       position: {x: -0.036158446, y: -0.000000038146972, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.9999998, y: 1.0000002, z: 0.9999996}
+      scale: {x: 1, y: 1.0000005, z: 1.0000006}
     - name: Scavenger_ L Finger22
       parentName: Scavenger_ L Finger21
       position: {x: -0.025177231, y: 0, z: -0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000006, y: 1.0000004, z: 1.000001}
+      scale: {x: 0.9999996, y: 0.99999994, z: 0.9999998}
     - name: Scavenger_ L Finger1
       parentName: Scavenger_ L Hand
       position: {x: -0.06842552, y: -0.004876137, z: -0.023515243}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000004, y: 1, z: 1.0000004}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999997}
     - name: Scavenger_ L Finger11
       parentName: Scavenger_ L Finger1
       position: {x: -0.033509824, y: 0, z: -0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1.0000008, z: 1.0000004}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
     - name: Scavenger_ L Finger12
       parentName: Scavenger_ L Finger11
       position: {x: -0.026355667, y: -0.000000057220458, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000006}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
     - name: Scavenger_ L Finger3
       parentName: Scavenger_ L Hand
       position: {x: -0.057266083, y: -0.004400673, z: 0.01651783}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000005, y: 1, z: 1.0000006}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
     - name: Scavenger_ L Finger31
       parentName: Scavenger_ L Finger3
       position: {x: -0.036500473, y: 0.000000019073486, z: 0.000000038146972}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 0.99999994, y: 1.0000007, z: 1.0000001}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000004}
     - name: Scavenger_ L Finger32
       parentName: Scavenger_ L Finger31
       position: {x: -0.024255294, y: 0.000000019073486, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+      scale: {x: 1, y: 1, z: 0.99999994}
     - name: Scavenger_ L Finger4
       parentName: Scavenger_ L Hand
       position: {x: -0.05485901, y: -0.0010264587, z: 0.03432739}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+      scale: {x: 1, y: 1.0000002, z: 1}
     - name: Scavenger_ L Finger41
       parentName: Scavenger_ L Finger4
       position: {x: -0.028733062, y: -0.000000019073486, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000005}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
     - name: Scavenger_ L Finger42
       parentName: Scavenger_ L Finger41
       position: {x: -0.017230682, y: 0.000000038146972, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
     - name: Scavenger_ Neck
       parentName: Scavenger_ Spine1
       position: {x: -0.20148566, y: 0.012542266, z: 0.000000014305114}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000004, y: 1.0000002, z: 1}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1}
     - name: Scavenger_ Head
       parentName: Scavenger_ Neck
       position: {x: -0.10999138, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000004}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
