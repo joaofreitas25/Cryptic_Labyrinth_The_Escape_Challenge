@@ -284,6 +284,7 @@ namespace StarterAssets
 		private void Animation()
 		{
 			anim.SetFloat("speed", _speed);
+			anim.SetFloat("jump", _jumpTimeoutDelta	);
 		}
 	}
 }
