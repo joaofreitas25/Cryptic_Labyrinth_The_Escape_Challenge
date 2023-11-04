@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using static BaseState;
 #endif
 
 namespace StarterAssets
@@ -69,6 +71,8 @@ namespace StarterAssets
 
 		//animation
 		public Animator anim;
+
+		StateMachine stateMachine;
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
@@ -98,9 +102,27 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+			
+			//StateMachine
+			stateMachine = new StateMachine();
 			//anim = GetComponent<Animator>();
+			//Declare states
+			
+			var jumpState = new JumpState(this, anim);
+			var idleState = new IdleState(this, anim);
+			//Define Transitions
+			At( idleState,  jumpState, new FuncPredicate(() => _input.jump));
+			At(jumpState, idleState, new FuncPredicate(() => Grounded));
+           
+			//Set inicial state
+			stateMachine.SetState(idleState);
+
 		}
 
+		void At(IState from, IState to, IPredicate condition) => stateMachine.AddTransition(from, to, condition);
+		void Any(IState to, IPredicate condition) => stateMachine.AddAnyTransition(to, condition);
+		
+		
 		private void Start()
 		{
 			_controller = GetComponent<CharacterController>();
@@ -123,13 +145,18 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Animation();
+			stateMachine.Update();
             
        
 
 
         }
+        private void FixedUpdate()
+        {
+			stateMachine.FixedUpdate();
+        }
 
-		private void LateUpdate()
+        private void LateUpdate()
 		{
             _mainCamera.transform.position = CinemachineCameraTarget.transform.position;
             _mainCamera.transform.rotation = CinemachineCameraTarget.transform.rotation;
@@ -165,7 +192,7 @@ namespace StarterAssets
 			}
 		}
 
-		private void Move()
+		public void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
@@ -217,7 +244,7 @@ namespace StarterAssets
 
         }
 
-		private void JumpAndGravity()
+		public void JumpAndGravity()
 		{
 			if (Grounded)
 			{
