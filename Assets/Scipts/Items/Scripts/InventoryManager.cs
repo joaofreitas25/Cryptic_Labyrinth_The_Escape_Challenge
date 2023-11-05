@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 public class In : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class In : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
+    public UnityEvent openinv;
+
+    public InventoryItemController[] InventoryItems;
 
     private void Awake()
     {
@@ -22,6 +27,11 @@ public class In : MonoBehaviour
         Items.Add(item);
     }
 
+    public void Remove(Itemv2 item)
+    {
+        Items.Remove(item);
+    }
+
     private void Update()
     {
         OpenInv();
@@ -29,7 +39,15 @@ public class In : MonoBehaviour
     public void OpenInv()
     {
         if (Input.GetKeyDown(KeyCode.I))
+        { 
             ListItems();
+            openinv.Invoke();
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+            
+
     }
 
     public void ListItems()
@@ -46,6 +64,18 @@ public class In : MonoBehaviour
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
+        }
+        SetInventoryItems();
+    }
+
+
+    public void SetInventoryItems()
+    {
+        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+
+        for (int i = 0; i <Items.Count; i++)
+        {
+            InventoryItems[i].AddItem(Items[i]);
         }
     }
 
