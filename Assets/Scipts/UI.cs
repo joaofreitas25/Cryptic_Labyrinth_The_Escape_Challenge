@@ -28,13 +28,11 @@ public class timer : MonoBehaviour
     private float displayText;
     private DateTime currentTime;
     private DateTime counttime;
-    private int hp = 100;
-    private int hunger = 1;
+    private int hp;
+    private int hunger;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
     private bool sleep= false;
-    public UnityEvent OpenInv;
-    public UnityEvent CloseInv;
     private bool inv = false;
     private bool takedmg=false;
 
@@ -45,6 +43,8 @@ public class timer : MonoBehaviour
 
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+        hp = 50;
+        hunger = 1;
     }
 
     void Update()
@@ -53,7 +53,6 @@ public class timer : MonoBehaviour
         rotateSun();
         Portoes();
         Morte();
-        Invmanager();
         counttime = counttime.AddSeconds(Time.deltaTime * timeMultiplier);
         if (hunger == 0) hunger = 0;
         else
@@ -65,6 +64,7 @@ public class timer : MonoBehaviour
             }
         }
         displayHp.text = "HP : " + hp.ToString();
+        Debug.Log(hunger);
         displayHunger.text = "Hunger : " + hunger.ToString();
         
     }
@@ -132,29 +132,7 @@ public class timer : MonoBehaviour
             }
         }
     }
-    public void Invmanager()
-    {
-        
-        if(inv == false)
-        {
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                OpenInv.Invoke();
-                inv = true;
-                Debug.Log(inv);
-            }
-        }
-        if (inv == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                CloseInv.Invoke();
-                inv = false;
-                Debug.Log(inv);
-            }
-        }
-
-    }
+    
 
     private void rotateSun()
     {
@@ -202,7 +180,15 @@ public class timer : MonoBehaviour
         }
     }
 
-
+    public void comer()
+    {
+        if (hunger + 30 < 100)
+        {
+            hunger += 30;
+        }
+        
+        Debug.Log(hunger);
+    }
 
 
 }
