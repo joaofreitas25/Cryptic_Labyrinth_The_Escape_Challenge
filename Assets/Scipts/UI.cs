@@ -5,8 +5,10 @@ using TMPro;
 using UnityEngine.Events;
 using System;
 
-public class timer : MonoBehaviour
+public class timer1 : MonoBehaviour
 {
+    public static timer1 Instance;
+
     private float timeMultiplier = 1800;
 
     private float starthour = 8.50f;
@@ -36,6 +38,10 @@ public class timer : MonoBehaviour
     private bool inv = false;
     private bool takedmg=false;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(starthour);
@@ -54,7 +60,7 @@ public class timer : MonoBehaviour
         Portoes();
         Morte();
         counttime = counttime.AddSeconds(Time.deltaTime * timeMultiplier);
-        if (hunger == 0) hunger = 0;
+        if (hunger < 0) hunger = 0;
         else
         {
             if (counttime.Hour == 1)
@@ -182,11 +188,9 @@ public class timer : MonoBehaviour
 
     public void comer()
     {
-        if (hunger + 30 < 100)
-        {
-            hunger += 30;
-        }
-        
+        hunger += 30;
+        if (hunger > 100)
+            hunger = 100; 
         Debug.Log(hunger);
     }
 

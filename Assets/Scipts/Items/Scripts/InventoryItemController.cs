@@ -23,5 +23,6 @@ public class InventoryItemController : MonoBehaviour
     {
         print("a");
         RemoveItem();
+        timer1.Instance.comer();
     }
 }
