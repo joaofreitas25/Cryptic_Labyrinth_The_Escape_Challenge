@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class OpenDoor : MonoBehaviour
@@ -14,6 +15,7 @@ public class OpenDoor : MonoBehaviour
     string codeTextValue = "";
     public string SafeCode;
     public GameObject CodePanel;
+    public UnityEvent keypad;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,8 @@ public class OpenDoor : MonoBehaviour
         if (Input.GetKey(KeyCode.P) && IsAtDoor == true)
         {
             Debug.Log("funciona");
-            CodePanel.SetActive(true);
+            //CodePanel.SetActive(true);
+            keypad.Invoke();
             Debug.Log("P");
         }
     }
@@ -51,6 +54,7 @@ public class OpenDoor : MonoBehaviour
         if(other.tag == "Player") 
         {
             IsAtDoor = true;
+            Debug.Log("POrta");
         }
     }
 
