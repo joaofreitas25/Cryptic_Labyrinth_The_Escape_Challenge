@@ -39,7 +39,7 @@ public class OpenDoor : MonoBehaviour
             codeTextValue = "";
         }
 
-        Debug.Log("funciona");
+        //Debug.Log("funciona");
         if (Input.GetKey(KeyCode.P) && IsAtDoor == true)
         {
             Debug.Log("funciona");

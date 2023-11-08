@@ -50,27 +50,33 @@ public class timer1 : MonoBehaviour
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         hp = 50;
-        hunger = 1;
+        hunger = 70;
     }
 
     void Update()
     {
+        counttime = counttime.AddSeconds(Time.deltaTime * timeMultiplier);
         UpdateTimeofDay();
         rotateSun();
         Portoes();
         Morte();
-        counttime = counttime.AddSeconds(Time.deltaTime * timeMultiplier);
+        
+        
         if (hunger < 0) hunger = 0;
+        else if (hunger > 100) hunger = 100;
+        else if (hp > 100) hp = 100;
         else
         {
+            HealthRegen();
             if (counttime.Hour == 1)
             {
                 hunger -= 1;
                 counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
             }
         }
+        
         displayHp.text = "HP : " + hp.ToString();
-        Debug.Log(hunger);
+        //Debug.Log(hunger);
         displayHunger.text = "Hunger : " + hunger.ToString();
         
     }
@@ -78,7 +84,7 @@ public class timer1 : MonoBehaviour
 
     private void Morte()
     {
-        if (hp == 0)
+        if (hp < 0)
         {
             hp = 0;
             
@@ -189,10 +195,22 @@ public class timer1 : MonoBehaviour
     public void comer()
     {
         hunger += 30;
-        if (hunger > 100)
-            hunger = 100; 
-        Debug.Log(hunger);
+        
+        //Debug.Log(hunger);
     }
 
+    private void HealthRegen()
+    {
+        if (hunger > 80)
+        {
+
+            
+            if (counttime.Hour == 1)
+            {
+                hp += 1;
+                counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
+            }
+        }
+    }
 
 }
