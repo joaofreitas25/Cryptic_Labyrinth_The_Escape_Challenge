@@ -34,9 +34,9 @@ public class timer1 : MonoBehaviour
     private int hunger;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
-    private bool sleep= false;
+    private bool sleep = false;
     private bool inv = false;
-    private bool takedmg=false;
+    private bool takedmg = false;
 
     private void Awake()
     {
@@ -60,25 +60,26 @@ public class timer1 : MonoBehaviour
         rotateSun();
         Portoes();
         Morte();
-        
-        
+
+
         if (hunger < 0) hunger = 0;
         else if (hunger > 100) hunger = 100;
         else if (hp > 100) hp = 100;
         else
         {
-            HealthRegen();
+
             if (counttime.Hour == 1)
             {
                 hunger -= 1;
                 counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
+                HealthRegen();
             }
         }
-        
+
         displayHp.text = "HP : " + hp.ToString();
         //Debug.Log(hunger);
         displayHunger.text = "Hunger : " + hunger.ToString();
-        
+
     }
 
 
@@ -87,7 +88,7 @@ public class timer1 : MonoBehaviour
         if (hp < 0)
         {
             hp = 0;
-            
+
         }
         else
         {
@@ -100,7 +101,7 @@ public class timer1 : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
 
@@ -108,7 +109,7 @@ public class timer1 : MonoBehaviour
     {
 
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        
+
         if (timeText != null)
         {
             timeText.text = currentTime.ToString("HH:mm");
@@ -119,10 +120,10 @@ public class timer1 : MonoBehaviour
 
     private void Portoes()
     {
-        if(currentTime.Hour == 9)
+        if (currentTime.Hour == 9)
         {
             print("Abre");
-            OpenP.Invoke();            
+            OpenP.Invoke();
         }
         if (currentTime.Hour == 15)
         {
@@ -136,7 +137,7 @@ public class timer1 : MonoBehaviour
         sleep = true;
         if (sleep == true)
         {
-            if(currentTime.Hour > 20 || currentTime.Hour < 6)
+            if (currentTime.Hour > 20 || currentTime.Hour < 6)
             {
                 currentTime = DateTime.Now.Date + TimeSpan.FromHours(starthour);
                 sleep = false;
@@ -144,7 +145,7 @@ public class timer1 : MonoBehaviour
             }
         }
     }
-    
+
 
     private void rotateSun()
     {
@@ -188,14 +189,14 @@ public class timer1 : MonoBehaviour
         if (takedmg == true)
         {
             hp -= 20;
-            takedmg=false;
+            takedmg = false;
         }
     }
 
     public void comer()
     {
         hunger += 30;
-        
+
         //Debug.Log(hunger);
     }
 
@@ -204,12 +205,8 @@ public class timer1 : MonoBehaviour
         if (hunger > 80)
         {
 
-            
-            if (counttime.Hour == 1)
-            {
-                hp += 1;
-                counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
-            }
+
+            hp += 1;
         }
     }
 
