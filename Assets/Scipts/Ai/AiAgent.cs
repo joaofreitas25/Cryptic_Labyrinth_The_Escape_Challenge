@@ -12,6 +12,7 @@ public class AiAgent : MonoBehaviour
     public Ragdoll ragdoll;
     public SkinnedMeshRenderer mesh;
     public Transform playerTransform;
+    public Animator animator;
 
     //public UIHealthBar ui;
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiChasePlayerState());
         stateMachine.RegisterState(new AiDeathState());
         stateMachine.RegisterState(new AiIdleState());
+        stateMachine.RegisterState(new AiAttack());
         stateMachine.ChangeState(initialState);
     }
 

@@ -26,6 +26,7 @@ public class AiIdleState : AiState
         if(dotProduct > 0.0f) { 
             agent.stateMachine.ChangeState(AiStateId.ChasePlayer);
         }
+        agent.animator.SetFloat("speed", 0f);
     }
     public void Exit(AiAgent agent)
     {
