@@ -32,6 +32,9 @@ public class OpenDoor : MonoBehaviour
         {
             anim.SetTrigger("OpenDoor");
             CodePanel.SetActive(false);
+            Time.timeScale = 1;
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;
         }
 
         if(codeTextValue.Length >= 7)
@@ -45,6 +48,9 @@ public class OpenDoor : MonoBehaviour
             Debug.Log("funciona");
             //CodePanel.SetActive(true);
             keypad.Invoke();
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             Debug.Log("P");
         }
     }
@@ -62,6 +68,9 @@ public class OpenDoor : MonoBehaviour
     {
         IsAtDoor = false;
         CodePanel.SetActive(false);
+        Time.timeScale = 1;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
 
     public void AddDigit(string digit) 
