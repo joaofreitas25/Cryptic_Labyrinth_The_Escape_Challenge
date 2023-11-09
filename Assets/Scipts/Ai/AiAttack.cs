@@ -41,11 +41,7 @@ public class AiAttack : AiState
 
                 // Após o ataque, redefina o tempo desde o último ataque
                 timeSinceLastAttack = 0.0f;
-                if (agent.CompareTag("Player"))
-                {
-                    takedmg.Invoke();
-
-                }
+                timer1.Instance.Takedmg();
             }
             else
             {
