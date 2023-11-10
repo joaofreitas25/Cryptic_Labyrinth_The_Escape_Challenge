@@ -37,6 +37,11 @@ public class timer1 : MonoBehaviour
     private bool sleep = false;
     private bool inv = false;
     private bool takedmg = false;
+    private bool takedmg2 = false;
+    private bool takedmg3 = false;
+    private bool takedmg4 = false;
+    private bool takedmg5 = false;
+    private bool takedmg6 = false;
 
     private void Awake()
     {
@@ -188,8 +193,53 @@ public class timer1 : MonoBehaviour
         takedmg = true;
         if (takedmg == true)
         {
-            hp -= 20;
+            hp -= 25;
             takedmg = false;
+        }
+    }
+    public void Takedmg2()
+    {
+        takedmg2 = true;
+        if (takedmg2 == true)
+        {
+            hp -= 30;
+            takedmg2 = false;
+        }
+    }
+    public void Takedmg3()
+    {
+        takedmg3 = true;
+        if (takedmg3 == true)
+        {
+            hp -= 20;
+            takedmg3 = false;
+        }
+    }
+    public void Takedmg4()
+    {
+        takedmg4 = true;
+        if (takedmg4 == true)
+        {
+            hp -= 5;
+            takedmg4 = false;
+        }
+    }
+    public void Takedmg5()
+    {
+        takedmg5 = true;
+        if (takedmg5 == true)
+        {
+            hp -= 45;
+            takedmg5 = false;
+        }
+    }
+    public void Takedmg6()
+    {
+        takedmg6 = true;
+        if (takedmg6 == true)
+        {
+            hp -= 95;
+            takedmg6 = false;
         }
     }
 
