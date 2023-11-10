@@ -28,12 +28,13 @@ public class timer1 : MonoBehaviour
     public TMP_Text displayHp;
     public TMP_Text displayHunger;
     private float displayText;
-    private DateTime currentTime;
+    public DateTime currentTime;
     private DateTime counttime;
     private int hp;
     private int hunger;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
+    public UnityEvent Showfs;
     private bool sleep = false;
     private bool inv = false;
     private bool takedmg = false;
@@ -65,7 +66,7 @@ public class timer1 : MonoBehaviour
         rotateSun();
         Portoes();
         Morte();
-
+        showfs();
 
         if (hunger < 0) hunger = 0;
         else if (hunger > 100) hunger = 100;
@@ -186,6 +187,16 @@ public class timer1 : MonoBehaviour
             diference += TimeSpan.FromHours(24);
         }
         return diference;
+    }
+
+
+    public void showfs()
+    {
+        if (currentTime.Hour == 10)
+        {
+            print("A");
+            Showfs.Invoke();
+        }
     }
 
     public void Takedmg()
