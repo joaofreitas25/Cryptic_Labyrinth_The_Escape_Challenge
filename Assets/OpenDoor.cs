@@ -16,6 +16,7 @@ public class OpenDoor : MonoBehaviour
     public string SafeCode;
     public GameObject CodePanel;
     public UnityEvent keypad;
+    public UnityEvent closekeypad;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,16 @@ public class OpenDoor : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            Debug.Log("P");
+        }
+        if (Input.GetKey(KeyCode.Escape) && IsAtDoor == true)
+        {
+            Debug.Log("funciona");
+            //CodePanel.SetActive(true);
+            closekeypad.Invoke();
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             Debug.Log("P");
         }
     }
