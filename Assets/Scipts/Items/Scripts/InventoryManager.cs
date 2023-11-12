@@ -15,6 +15,7 @@ public class In : MonoBehaviour
     public GameObject InventoryItem;
     public UnityEvent openinv;
     public UnityEvent closeinv;
+    public bool inventory = false;
 
     public InventoryItemController[] InventoryItems;
 
@@ -47,16 +48,18 @@ public class In : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            inventory = true;
         }
     }
     public void CloseInv()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && inventory)
         {
             Time.timeScale = 1;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
             closeinv.Invoke();
+            inventory = false;
         }
     }
     public void ListItems()
