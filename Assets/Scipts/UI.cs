@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using System;
+using UnityEngine.SceneManagement;
 
 public class timer1 : MonoBehaviour
 {
@@ -91,9 +92,9 @@ public class timer1 : MonoBehaviour
 
     private void Morte()
     {
-        if (hp < 0)
+        if (hp <=0)
         {
-            hp = 0;
+            SceneManager.LoadScene("Test");
 
         }
         else
@@ -270,5 +271,8 @@ public class timer1 : MonoBehaviour
             hp += 1;
         }
     }
+
+
+    
 
 }

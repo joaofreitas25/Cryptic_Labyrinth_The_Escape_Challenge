@@ -17,8 +17,5 @@ public class PlayerInv : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
-    {
-        inventory.Container.Clear();
-    }
+    
 }
