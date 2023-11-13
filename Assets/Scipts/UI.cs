@@ -261,6 +261,18 @@ public class timer1 : MonoBehaviour
 
         //Debug.Log(hunger);
     }
+    public void beber()
+    {
+        hunger += 20;
+
+        //Debug.Log(hunger);
+    }
+    public void medKit()
+    {
+        hp += 50;
+
+        //Debug.Log(hunger);
+    }
 
     private void HealthRegen()
     {

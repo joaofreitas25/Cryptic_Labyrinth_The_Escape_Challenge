@@ -9,7 +9,10 @@ public class FoodSpawner : MonoBehaviour
 
     [SerializeField]
     Itemv2 item;
-
+    [SerializeField]
+    Itemv2 item1;
+    [SerializeField]
+    Itemv2 item2;
 
     private bool foodspawner = false;
     public UnityEvent hidefs;
@@ -39,6 +42,15 @@ public class FoodSpawner : MonoBehaviour
                     {
                         In.Instance.Add(item);
                     }
+                    int num1 = rnd.Next(1, 10);
+
+                    for (int i = 0; i < num1; i++)
+                    {
+                        In.Instance.Add(item1);
+                    }
+                    int num2 = rnd.Next(1, 10);
+                    if(num2 ==2)
+                        In.Instance.Add(item2);
                     foodspawner = false;
                     hidefs.Invoke();
                 }

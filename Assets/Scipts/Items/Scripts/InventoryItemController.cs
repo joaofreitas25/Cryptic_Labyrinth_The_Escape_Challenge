@@ -21,8 +21,23 @@ public class InventoryItemController : MonoBehaviour
 
     public void UseItem()
     {
-        print("a");
-        RemoveItem();
-        timer1.Instance.comer();
+        if (Item.id == 1)
+        { 
+            timer1.Instance.comer();
+            Debug.Log("Comer");
+            RemoveItem();
+        }
+        else if (Item.id == 2)
+        {
+            timer1.Instance.beber();
+            Debug.Log("Beber");
+            RemoveItem();
+        }
+        else if (Item.id == 3)
+        {
+            timer1.Instance.medKit();
+            Debug.Log("MedKit");
+            RemoveItem();
+        }
     }
 }
