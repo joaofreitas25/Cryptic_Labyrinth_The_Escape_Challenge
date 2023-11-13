@@ -13,6 +13,7 @@ public class AiAgent : MonoBehaviour
     public SkinnedMeshRenderer mesh;
     public Transform playerTransform;
     public Animator animator;
+    public Transform[] patrolPoints;
 
     //public UIHealthBar ui;
     // Start is called before the first frame update
@@ -22,12 +23,12 @@ public class AiAgent : MonoBehaviour
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
         stateMachine = new AiStateMachine(this);
         stateMachine.RegisterState(new AiChasePlayerState());
         stateMachine.RegisterState(new AiDeathState());
         stateMachine.RegisterState(new AiIdleState());
         stateMachine.RegisterState(new AiAttack());
+        stateMachine.RegisterState(new AiPatrolState());
         stateMachine.ChangeState(initialState);
     }
 
