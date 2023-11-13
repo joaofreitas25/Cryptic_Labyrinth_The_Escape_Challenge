@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private InputActionReference interactionInput, dropInput, useInput;
 
     private RaycastHit hit;
+    public Animator anim;
 
     private void Start()
     {
@@ -60,7 +61,17 @@ public class Player : MonoBehaviour
         }
 
     }
-
+    //public void DealDamageToAI(GameObject aiAgent, int damageAmount = 10)
+    //{
+    //    // Apply damage to the AI agent
+    //    AiAgent aiScript = aiAgent.GetComponent<AiAgent>();
+    //    if (aiScript != null)
+    //    {
+    //        aiScript.TakeDamage(damageAmount);
+    //        anim.SetBool("attack", true);
+    //        Debug.Log("hit");
+    //    }
+    //}
     private void Interact(InputAction.CallbackContext obj)
     {
         if(hit.collider != null)
@@ -103,6 +114,7 @@ public class Player : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             //pickUpUI.SetActive(true);
         }
+
         
        
     }
