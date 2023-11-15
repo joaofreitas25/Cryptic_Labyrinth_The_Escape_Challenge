@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 3
   itemName: MedKit
   value: 1
-  icon: {fileID: 21300000, guid: fad7bce2768328f488ca5d8a24f74af0, type: 3}
+  icon: {fileID: 21300000, guid: d8072c3777186b745a8541e4bd2fab37, type: 3}
