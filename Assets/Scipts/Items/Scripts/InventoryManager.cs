@@ -60,14 +60,12 @@ public class In : MonoBehaviour
             UnityEngine.Cursor.visible = false;
             closeinv.Invoke();
             inventory = false;
+            CleanContent();
         }
     }
     public void ListItems()
     {
-        foreach(Transform item in ItemContent)
-        {
-            Destroy(item.gameObject);
-        }
+        
         foreach(var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -88,6 +86,14 @@ public class In : MonoBehaviour
         for (int i = 0; i <Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
+        }
+    }
+
+    public void CleanContent()
+    {
+        foreach (Transform item in ItemContent)
+        {
+            Destroy(item.gameObject);
         }
     }
 
