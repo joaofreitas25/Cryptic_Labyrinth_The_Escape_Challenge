@@ -10,7 +10,7 @@ public class timer1 : MonoBehaviour
 {
     public static timer1 Instance;
 
-    private float timeMultiplier = 1800;
+    private float timeMultiplier = 200;
 
     private float starthour = 8.50f;
     private float startcount = 0;
