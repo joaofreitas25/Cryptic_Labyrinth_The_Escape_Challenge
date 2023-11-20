@@ -41,7 +41,7 @@ public class In : MonoBehaviour
     }
     public void OpenInv()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !inventory)
         { 
             ListItems();
             openinv.Invoke();
@@ -53,7 +53,7 @@ public class In : MonoBehaviour
     }
     public void CloseInv()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && inventory)
+        if (Input.GetKeyDown(KeyCode.Escape) && inventory)
         {
             Time.timeScale = 1;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;

@@ -94,8 +94,8 @@ public class timer1 : MonoBehaviour
     {
         if (hp <=0)
         {
-            //SceneManager.LoadScene("Test");
-            print("morreu");
+            SceneManager.LoadScene("Died");
+            //print("morreu");
         }
         else
         {
