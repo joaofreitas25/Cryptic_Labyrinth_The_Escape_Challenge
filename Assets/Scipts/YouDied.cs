@@ -10,6 +10,11 @@ public class YouDied : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+    private void Update()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
 
     // Update is called once per frame
     public void Exit()
