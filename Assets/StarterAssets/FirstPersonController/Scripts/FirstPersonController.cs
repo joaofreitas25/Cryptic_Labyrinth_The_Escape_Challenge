@@ -152,7 +152,16 @@ namespace StarterAssets
 			Animation();
 			stateMachine.Update();
 
+			if(timer1.Instance.hp <= 20)
+			{
+				
+				SprintSpeed = MoveSpeed;
+			}
+			else
+            {
+				SprintSpeed = 20.0f;
 
+			}
             
        
 

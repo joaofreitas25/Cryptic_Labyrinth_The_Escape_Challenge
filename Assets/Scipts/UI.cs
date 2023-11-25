@@ -31,8 +31,8 @@ public class timer1 : MonoBehaviour
     private float displayText;
     public DateTime currentTime;
     private DateTime counttime;
-    private int hp;
-    private int hunger;
+    public int hp;
+    public int hunger;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
     public UnityEvent Showfs;
@@ -75,10 +75,10 @@ public class timer1 : MonoBehaviour
         else
         {
 
-            if (counttime.Hour == 1)
+            if (counttime.Minute == 10)
             {
                 hunger -= 1;
-                counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
+                counttime = DateTime.Now.Date + TimeSpan.FromMinutes(startcount);
                 HealthRegen();
             }
         }
