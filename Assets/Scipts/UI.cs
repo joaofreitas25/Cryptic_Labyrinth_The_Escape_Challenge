@@ -22,7 +22,8 @@ public class timer1 : MonoBehaviour
     private float sunriseHour = 7;
     private float sunsetHour = 20;
 
-
+    public HealthBar healthBar;
+    public HealthBar hungerBar;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
     public TMP_Text displayTime;
@@ -58,6 +59,9 @@ public class timer1 : MonoBehaviour
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         hp = 50;
         hunger = 70;
+        healthBar.SetMaxHealth(100,hp);
+        hungerBar.SetMaxHealth(100, hunger);
+
     }
 
     void Update()
@@ -82,10 +86,10 @@ public class timer1 : MonoBehaviour
                 HealthRegen();
             }
         }
-
-        displayHp.text = "HP : " + hp.ToString();
+        healthBar.SetHealth(hp);
+        hungerBar.SetHealth(hunger);
         //Debug.Log(hunger);
-        displayHunger.text = "Hunger : " + hunger.ToString();
+
 
     }
 
@@ -283,6 +287,8 @@ public class timer1 : MonoBehaviour
             hp += 1;
         }
     }
+
+    
 
 
     
