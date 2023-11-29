@@ -78,19 +78,35 @@ public class timer1 : MonoBehaviour
         else if (hp > 100) hp = 100;
         else
         {
-
-            if (counttime.Minute == 10)
-            {
-                hunger -= 1;
-                counttime = DateTime.Now.Date + TimeSpan.FromMinutes(startcount);
-                HealthRegen();
-            }
+            Hunger();
+            
         }
         healthBar.SetHealth(hp);
         hungerBar.SetHealth(hunger);
         //Debug.Log(hunger);
 
 
+    }
+
+    public void Hunger()
+    {
+        if (counttime.Minute == 10)
+        {
+            hunger -= 1;
+            counttime = DateTime.Now.Date + TimeSpan.FromMinutes(startcount);
+            HealthRegen();
+            print(hunger);
+        }
+    }
+    public void Hunger2()
+    {
+        if (counttime.Minute == 2)
+        {
+            hunger -= 1;
+            counttime = DateTime.Now.Date + TimeSpan.FromMinutes(startcount);
+            
+            print(hunger);
+        }
     }
 
 

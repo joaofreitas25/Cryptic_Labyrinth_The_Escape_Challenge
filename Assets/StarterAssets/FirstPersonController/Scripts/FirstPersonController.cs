@@ -162,11 +162,16 @@ namespace StarterAssets
 				SprintSpeed = 20.0f;
 
 			}
-            
-       
+			
+			while (_speed ==20.0f);
+			{
+				Debug.Log(_speed);
+				//timer1.Instance.Hunger2();
+			}
 
 
-        }
+
+		}
         private void FixedUpdate()
         {
 			stateMachine.FixedUpdate();
@@ -235,6 +240,7 @@ namespace StarterAssets
 
 				// round speed to 3 decimal places
 				_speed = Mathf.Round(_speed * 1000f) / 1000f;
+				
 			}
 			else
 			{
