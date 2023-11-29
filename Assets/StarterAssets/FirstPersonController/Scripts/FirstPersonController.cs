@@ -13,13 +13,13 @@ namespace StarterAssets
 	[RequireComponent(typeof(PlayerInput))]
 #endif
 
-    public class Enemy : Entity { }
+	public class Enemy : Entity { }
 
 
-    public class FirstPersonController : MonoBehaviour
+	public class FirstPersonController : MonoBehaviour
 	{
 
-	
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -68,7 +68,7 @@ namespace StarterAssets
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
-		
+
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
@@ -78,7 +78,7 @@ namespace StarterAssets
 		public Animator anim;
 
 		StateMachine stateMachine;
-	
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
 #endif
@@ -92,11 +92,11 @@ namespace StarterAssets
 		{
 			get
 			{
-				#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 				return _playerInput.currentControlScheme == "KeyboardMouse";
-				#else
+#else
 				return false;
-				#endif
+#endif
 			}
 		}
 
@@ -107,18 +107,18 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
-			
+
 			//StateMachine
 			stateMachine = new StateMachine();
 			//anim = GetComponent<Animator>();
 			//Declare states
-			
+
 			var jumpState = new JumpState(this, anim);
 			var idleState = new IdleState(this, anim);
 			//Define Transitions
-			At( idleState,  jumpState, new FuncPredicate(() => _input.jump));
+			At(idleState, jumpState, new FuncPredicate(() => _input.jump));
 			At(jumpState, idleState, new FuncPredicate(() => Grounded));
-           
+
 			//Set inicial state
 			stateMachine.SetState(idleState);
 
@@ -126,15 +126,15 @@ namespace StarterAssets
 
 		void At(IState from, IState to, IPredicate condition) => stateMachine.AddTransition(from, to, condition);
 		void Any(IState to, IPredicate condition) => stateMachine.AddAnyTransition(to, condition);
-		
-		
+
+
 		private void Start()
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 			_playerInput = GetComponent<PlayerInput>();
-		
+
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -151,37 +151,43 @@ namespace StarterAssets
 			Move();
 			Animation();
 			stateMachine.Update();
+			checkspeed();
 
-			if(timer1.Instance.hp <= 20)
+			if (timer1.Instance.hp <= 20)
 			{
-				
+
 				SprintSpeed = MoveSpeed;
 			}
 			else
-            {
+			{
 				SprintSpeed = 20.0f;
 
 			}
-			
-			while (_speed ==20.0f);
-			{
-				Debug.Log(_speed);
-				//timer1.Instance.Hunger2();
-			}
 
+
+			//Debug.Log(_speed);
 
 
 		}
-        private void FixedUpdate()
-        {
-			stateMachine.FixedUpdate();
-        }
 
-        private void LateUpdate()
+		private void checkspeed()
 		{
-            _mainCamera.transform.position = CinemachineCameraTarget.transform.position;
-            _mainCamera.transform.rotation = CinemachineCameraTarget.transform.rotation;
-            CameraRotation();
+			if (_speed >= 10.0f)
+			{
+
+				timer1.Instance.Hunger2();
+			}
+		}
+		private void FixedUpdate()
+		{
+			stateMachine.FixedUpdate();
+		}
+
+		private void LateUpdate()
+		{
+			_mainCamera.transform.position = CinemachineCameraTarget.transform.position;
+			_mainCamera.transform.rotation = CinemachineCameraTarget.transform.rotation;
+			CameraRotation();
 		}
 
 		private void GroundedCheck()
@@ -198,7 +204,7 @@ namespace StarterAssets
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-				
+
 				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
 				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
@@ -240,7 +246,7 @@ namespace StarterAssets
 
 				// round speed to 3 decimal places
 				_speed = Mathf.Round(_speed * 1000f) / 1000f;
-				
+
 			}
 			else
 			{
@@ -258,13 +264,13 @@ namespace StarterAssets
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
 
 			}
-				
-            // move the player
-            _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            
+			// move the player
+			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-        }
+
+
+		}
 
 		public void JumpAndGravity()
 		{
@@ -335,8 +341,8 @@ namespace StarterAssets
 		private void Animation()
 		{
 			anim.SetFloat("speed", _speed);
-		
+
 		}
-        
-    }
+
+	}
 }
