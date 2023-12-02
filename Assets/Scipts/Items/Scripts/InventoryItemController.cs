@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class InventoryItemController : MonoBehaviour
 {
     Itemv2 Item;
-    
+    public UnityEvent Puzzle1;
+    public UnityEvent Puzzle2;
+    public UnityEvent Puzzle3;
+    public UnityEvent Puzzle4;
+   
 
     public void RemoveItem()
     {
@@ -38,6 +42,33 @@ public class InventoryItemController : MonoBehaviour
             timer1.Instance.medKit();
             Debug.Log("MedKit");
             RemoveItem();
+        }
+        else if(Item.id == 4)
+        {
+            Puzzle1.Invoke();
+            Debug.Log("Puzzle1");
+           
+
+        }
+        else if (Item.id == 5)
+        {
+            Puzzle2.Invoke();
+            Debug.Log("Puzzle2");
+            
+
+        }
+        else if (Item.id == 6)
+        {
+            Puzzle3.Invoke();
+            Debug.Log("Puzzle3");
+            
+
+        }
+        else if (Item.id == 7)
+        {
+            Puzzle4.Invoke();
+            Debug.Log("Puzzle4");
+
         }
     }
 }
