@@ -6,10 +6,7 @@ using UnityEngine.Events;
 public class InventoryItemController : MonoBehaviour
 {
     Itemv2 Item;
-    public UnityEvent Puzzle1;
-    public UnityEvent Puzzle2;
-    public UnityEvent Puzzle3;
-    public UnityEvent Puzzle4;
+    
    
 
     public void RemoveItem()
@@ -45,28 +42,28 @@ public class InventoryItemController : MonoBehaviour
         }
         else if(Item.id == 4)
         {
-            Puzzle1.Invoke();
+            timer1.Instance.puzzle1();
             Debug.Log("Puzzle1");
            
 
         }
         else if (Item.id == 5)
         {
-            Puzzle2.Invoke();
+            timer1.Instance.puzzle2();
             Debug.Log("Puzzle2");
             
 
         }
         else if (Item.id == 6)
         {
-            Puzzle3.Invoke();
+            timer1.Instance.puzzle3();
             Debug.Log("Puzzle3");
             
 
         }
         else if (Item.id == 7)
         {
-            Puzzle4.Invoke();
+            timer1.Instance.puzzle4();
             Debug.Log("Puzzle4");
 
         }

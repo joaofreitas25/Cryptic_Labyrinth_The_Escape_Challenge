@@ -42,14 +42,18 @@ public class In : MonoBehaviour
     public void OpenInv()
     {
         if (Input.GetKeyDown(KeyCode.I) && !inventory)
-        { 
-            ListItems();
-            openinv.Invoke();
-            Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            inventory = true;
+        {
+            OpenInv2();
         }
+    }
+    public void OpenInv2()
+    {
+        ListItems();
+        openinv.Invoke();
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        inventory = true;
     }
     public void CloseInv()
     {
@@ -61,8 +65,12 @@ public class In : MonoBehaviour
             closeinv.Invoke();
             inventory = false;
             CleanContent();
+            print("a");
         }
     }
+    
+
+
     public void ListItems()
     {
         

@@ -45,6 +45,10 @@ public class timer1 : MonoBehaviour
     private bool takedmg4 = false;
     private bool takedmg5 = false;
     private bool takedmg6 = false;
+    public bool img1 = false;
+    public bool img2 = false;
+    public bool img3 = false;
+    public bool img4 = false;
 
     private void Awake()
     {
@@ -61,6 +65,7 @@ public class timer1 : MonoBehaviour
         hunger = 70;
         healthBar.SetMaxHealth(100,hp);
         hungerBar.SetMaxHealth(100, hunger);
+        
 
     }
 
@@ -72,6 +77,12 @@ public class timer1 : MonoBehaviour
         Portoes();
         Morte();
         showfs();
+        cpuzzle1();
+        cpuzzle2();
+        cpuzzle3();
+        cpuzzle4();
+        Debug.Log(In.Instance.inventory);
+
 
         if (hunger < 0) hunger = 0;
         else if (hunger > 100) hunger = 100;
@@ -304,9 +315,73 @@ public class timer1 : MonoBehaviour
         }
     }
 
-    
+    public UnityEvent Puzzle1;
+    public void puzzle1()
+    {
+        img1 = true;
+        Puzzle1.Invoke();
+        
+        
+    }
+    public UnityEvent CPuzzle1;
+    public void cpuzzle1()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape) && img1)
+        {
+            CPuzzle1.Invoke();
+            
+        }
+        
+    }
+
+    public UnityEvent Puzzle2;
+    public void puzzle2()
+    {
+        img2 = true;
+        Puzzle2.Invoke();
+    }
+    public UnityEvent CPuzzle2;
+    public void cpuzzle2()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape) && img2)
+            CPuzzle2.Invoke();
+
+    }
+    public UnityEvent Puzzle3;
+    public void puzzle3()
+    {
+        img3 = true;
+        Puzzle3.Invoke();
+    }
+    public UnityEvent CPuzzle3;
+    public void cpuzzle3()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape) && img3)
+            CPuzzle3.Invoke();
+
+    }
+    public UnityEvent Puzzle4;
+    public void puzzle4()
+    {
+        img4 = true;
+        Puzzle4.Invoke();
+    }
+    public UnityEvent CPuzzle4;
+    public void cpuzzle4()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape) && img4)
+            CPuzzle4.Invoke();
+
+    }
 
 
-    
+
+
+
+
 
 }
