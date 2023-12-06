@@ -152,8 +152,9 @@ namespace StarterAssets
 			Animation();
 			stateMachine.Update();
 			checkspeed();
+			checkjump();
 
-			if (timer1.Instance.hp <= 20)
+			if (timer1.Instance.hunger <= 20)
 			{
 
 				SprintSpeed = MoveSpeed;
@@ -164,6 +165,7 @@ namespace StarterAssets
 
 			}
 
+			
 
 			//Debug.Log(_speed);
 
@@ -175,8 +177,14 @@ namespace StarterAssets
 			if (_speed >= 10.0f)
 			{
 
-				timer1.Instance.Hunger2();
+				
 			}
+		}
+
+		private void checkjump()
+        {
+			if (_input.jump)
+				timer1.Instance.hunger -= 0.2f;
 		}
 		private void FixedUpdate()
 		{
@@ -290,6 +298,7 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					
 				}
 
 				// jump timeout

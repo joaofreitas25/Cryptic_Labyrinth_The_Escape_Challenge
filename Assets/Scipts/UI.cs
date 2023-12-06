@@ -32,8 +32,8 @@ public class timer1 : MonoBehaviour
     private float displayText;
     public DateTime currentTime;
     private DateTime counttime;
-    public int hp;
-    public int hunger;
+    public float hp;
+    public float hunger;
     public UnityEvent OpenP;
     public UnityEvent CloseP;
     public UnityEvent Showfs;
