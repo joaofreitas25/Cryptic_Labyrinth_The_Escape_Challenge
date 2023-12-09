@@ -27,7 +27,7 @@ public class FoodSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer1.Instance.currentTime.Hour > 10)
+        if (timer1.Instance.currentTime.Hour >= 10)
         {
             if (foodspawner)
             {

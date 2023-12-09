@@ -224,7 +224,7 @@ public class timer1 : MonoBehaviour
 
     public void showfs()
     {
-        if (currentTime.Hour == 10)
+        if (currentTime.Hour == 10 && currentTime.Minute == 0)
         {
             print("A");
             Showfs.Invoke();
