@@ -70,6 +70,9 @@ namespace StarterAssets
 		private float _terminalVelocity = 53.0f;
 
 
+		public AudioClip[] FootstepAudioClips;
+		[Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
@@ -142,10 +145,12 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			counttime = DateTime.Now.Date + TimeSpan.FromHours(startcount);
 		}
-
+		private float timeMultiplier = 200;
 		private void Update()
 		{
+			counttime = counttime.AddSeconds(Time.deltaTime * timeMultiplier);
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -177,9 +182,13 @@ namespace StarterAssets
 			if (_speed >= 10.0f)
 			{
 
-				
+				timer1.Instance.Hunger2();
+
 			}
 		}
+
+
+		
 
 		private void checkjump()
         {
@@ -226,7 +235,8 @@ namespace StarterAssets
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
 		}
-
+		private DateTime counttime;
+		private float startcount = 0;
 		public void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
@@ -270,8 +280,24 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
+				
+					
+					if (counttime.Minute == 2)
+					{
+						print("seconds");
+						var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
+						AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+						counttime = DateTime.Now.Date + TimeSpan.FromMinutes(startcount);
+
+						
+					}
+
+					
+					
+				
 
 			}
+			else counttime = DateTime.Now.Date + TimeSpan.FromMinutes(startcount);
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
@@ -279,6 +305,8 @@ namespace StarterAssets
 
 
 		}
+
+		
 
 		public void JumpAndGravity()
 		{
