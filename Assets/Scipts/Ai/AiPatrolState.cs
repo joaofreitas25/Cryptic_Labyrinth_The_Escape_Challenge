@@ -20,6 +20,9 @@ public class AiPatrolState : AiState
     {
         patrolPoints = agent.patrolPoints;
         SetNextPatrolDestination(agent);
+        agent.audioSource.clip = agent.patrolSound;
+        agent.audioSource.loop = true; // Configurar para repetir
+        agent.audioSource.Play();
     }
 
     public void Update(AiAgent agent)
@@ -73,6 +76,8 @@ public class AiPatrolState : AiState
     public void Exit(AiAgent agent)
     {
         // Cleanup or perform any necessary actions when exiting the patrol state
+        agent.audioSource.Stop();
+
     }
 
     private IEnumerator SetNextPatrolDestinationCoroutine(AiAgent agent)

@@ -15,7 +15,12 @@ public class AiAgent : MonoBehaviour
     public Transform[] patrolPoints;
     public LayerMask playerLayer;
     public Player Player;
-    
+    public AudioClip idleSound;
+    public AudioClip chaseSound;
+    public AudioClip attackSound;
+    public AudioClip patrolSound;
+    public AudioSource audioSource;
+
 
 
     //private int health; // Assuming the AI has 100 health initially
@@ -23,6 +28,9 @@ public class AiAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.minDistance = 5f;  // Ajuste conforme necessário
+        audioSource.maxDistance = 20f; 
         mesh = GetComponentInChildren<SkinnedMeshRenderer>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -33,6 +41,10 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiAttack());
         stateMachine.RegisterState(new AiPatrolState());
         stateMachine.ChangeState(initialState);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.spatialBlend = 1.0f; // 3D sound
+        audioSource.volume = 0.0001f;
+        audioSource.transform.position = transform.position;
         //health = 100;
     }
 
@@ -66,5 +78,7 @@ public class AiAgent : MonoBehaviour
     void Update()
     {
         stateMachine.Update();
+        Debug.Log("AiAgent Position: " + transform.position);
+        Debug.Log("AudioSource Position: " + audioSource.transform.position);
     }
 }
