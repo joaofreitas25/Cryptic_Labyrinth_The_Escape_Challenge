@@ -17,6 +17,8 @@ public class OpenDoorNorth : MonoBehaviour
     public GameObject CodePanel;
     public UnityEvent keypad;
     public UnityEvent closekeypad;
+    public UnityEvent showtext;
+    public UnityEvent hidetext;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +74,7 @@ public class OpenDoorNorth : MonoBehaviour
         {
             IsAtDoor = true;
             Debug.Log("POrta");
+            showtext.Invoke();
         }
     }
 
@@ -82,6 +85,7 @@ public class OpenDoorNorth : MonoBehaviour
         Time.timeScale = 1;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
+        hidetext.Invoke();
     }
 
     public void AddDigit(string digit)

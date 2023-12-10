@@ -175,7 +175,7 @@ public class timer1 : MonoBehaviour
         sleep = true;
         if (sleep == true)
         {
-            if (currentTime.Hour > 20 || currentTime.Hour < 6)
+            if (currentTime.Hour >= 20 || currentTime.Hour <= 6)
             {
                 currentTime = DateTime.Now.Date + TimeSpan.FromHours(starthour);
                 sleep = false;
@@ -224,7 +224,7 @@ public class timer1 : MonoBehaviour
 
     public void showfs()
     {
-        if (currentTime.Hour == 10 && currentTime.Minute == 0)
+        if (currentTime.Hour == 9 && currentTime.Minute == 0)
         {
             print("A");
             Showfs.Invoke();
@@ -330,7 +330,8 @@ public class timer1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && img1)
         {
             CPuzzle1.Invoke();
-            
+
+            Time.timeScale = 1f;
         }
         
     }

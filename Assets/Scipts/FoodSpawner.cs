@@ -17,6 +17,9 @@ public class FoodSpawner : MonoBehaviour
     private bool foodspawner = false;
     public UnityEvent hidefs;
 
+    public UnityEvent showtext;
+    public UnityEvent hidetext;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +30,7 @@ public class FoodSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer1.Instance.currentTime.Hour >= 10)
-        {
+        
             if (foodspawner)
             {
 
@@ -53,9 +55,10 @@ public class FoodSpawner : MonoBehaviour
                         In.Instance.Add(item2);
                     foodspawner = false;
                     hidefs.Invoke();
-                }
+                    hidetext.Invoke();
             }
-        }
+            }
+        
 
     }
 
@@ -74,6 +77,7 @@ public class FoodSpawner : MonoBehaviour
             foodspawner = true;
             print("a");
             OnFS();
+            showtext.Invoke();
         }
 
     }
@@ -83,6 +87,7 @@ public class FoodSpawner : MonoBehaviour
         {
             print("saiu");
             foodspawner = false;
+            hidetext.Invoke();
         }
 
 
