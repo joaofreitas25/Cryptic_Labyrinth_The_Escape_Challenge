@@ -15,10 +15,10 @@ public class AiAgent : MonoBehaviour
     public Transform[] patrolPoints;
     public LayerMask playerLayer;
     public Player Player;
-    public AudioClip idleSound;
-    public AudioClip chaseSound;
-    public AudioClip attackSound;
-    public AudioClip patrolSound;
+    public AudioSource idleSound;
+    public AudioSource chaseSound;
+    public AudioSource attackSound;
+    public AudioSource patrolSound;
     public AudioSource audioSource;
 
 

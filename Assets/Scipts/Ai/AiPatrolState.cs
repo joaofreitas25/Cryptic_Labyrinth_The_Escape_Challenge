@@ -20,7 +20,7 @@ public class AiPatrolState : AiState
     {
         patrolPoints = agent.patrolPoints;
         SetNextPatrolDestination(agent);
-        agent.audioSource.clip = agent.patrolSound;
+        agent.audioSource = agent.patrolSound;
         agent.audioSource.loop = true; // Configurar para repetir
         agent.audioSource.Play();
     }

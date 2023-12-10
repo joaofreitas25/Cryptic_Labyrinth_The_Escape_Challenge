@@ -20,7 +20,7 @@ public class AiAttack : AiState
     public void Enter(AiAgent agent)
     {
         // Coloque aqui qualquer código de inicialização do estado de ataque
-        agent.audioSource.clip = agent.attackSound;
+        agent.audioSource = agent.attackSound;
         agent.audioSource.loop = true; // Configurar para repetir
         agent.audioSource.Play();
     }

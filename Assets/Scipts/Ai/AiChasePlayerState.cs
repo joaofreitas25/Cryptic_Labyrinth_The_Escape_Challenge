@@ -23,7 +23,7 @@ public class AiChasePlayerState : AiState
         // Reset flags and coroutine reference
         hasPlayerInSight = false;
         attackDelayCoroutine = null;
-        agent.audioSource.clip = agent.chaseSound;
+        agent.audioSource = agent.chaseSound;
         agent.audioSource.loop = true; // Configurar para repetir
         agent.audioSource.Play();
     }
