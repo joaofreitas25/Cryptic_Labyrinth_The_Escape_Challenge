@@ -10,9 +10,8 @@ public class AiIdleState : AiState
     }
     public void Enter(AiAgent agent)
     {
-        agent.audioSource = agent.idleSound;
-        agent.audioSource.loop = true; // Configurar para repetir
-        agent.audioSource.Play();
+        
+        agent.idleSound.Play();
     }
     public void Update(AiAgent agent)
     {
@@ -32,7 +31,7 @@ public class AiIdleState : AiState
     }
     public void Exit(AiAgent agent)
     {
-        agent.audioSource.Stop();
+        agent.idleSound.Stop();
     }
 
    

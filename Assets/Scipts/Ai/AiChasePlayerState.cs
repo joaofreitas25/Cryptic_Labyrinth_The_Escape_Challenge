@@ -23,9 +23,9 @@ public class AiChasePlayerState : AiState
         // Reset flags and coroutine reference
         hasPlayerInSight = false;
         attackDelayCoroutine = null;
-        agent.audioSource = agent.chaseSound;
-        agent.audioSource.loop = true; // Configurar para repetir
-        agent.audioSource.Play();
+       
+        agent.chaseSound.loop = true; 
+        agent.chaseSound.Play();
     }
 
     public void Update(AiAgent agent)
@@ -79,7 +79,7 @@ public class AiChasePlayerState : AiState
         {
             agent.StopCoroutine(attackDelayCoroutine);
             attackDelayCoroutine = null;
-            agent.audioSource.Stop();
+            agent.chaseSound.Stop();
 
         }
     }
