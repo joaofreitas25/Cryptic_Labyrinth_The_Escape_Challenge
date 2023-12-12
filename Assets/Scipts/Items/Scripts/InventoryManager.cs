@@ -36,8 +36,20 @@ public class In : MonoBehaviour
 
     private void Update()
     {
-        OpenInv();
-        CloseInv();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventory = !inventory;
+            if (inventory)
+            {
+                OpenInv2();
+            }
+            else
+            {
+                CloseInv();
+            }
+        }
+        //OpenInv();
+        //CloseInv();
     }
     public void OpenInv()
     {
@@ -53,20 +65,19 @@ public class In : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        inventory = true;
+        
     }
     public void CloseInv()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && inventory)
-        {
+        
             Time.timeScale = 1;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
             closeinv.Invoke();
-            inventory = false;
+            
             CleanContent();
             print("a");
-        }
+        
     }
     
 
