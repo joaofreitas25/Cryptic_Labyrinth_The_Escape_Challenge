@@ -238,6 +238,7 @@ public class timer1 : MonoBehaviour
         {
             hp -= 25;
             takedmg = false;
+            FindObjectOfType<TakenDamageScript>().StartDamageEffect();
         }
     }
     public void Takedmg2()
@@ -247,6 +248,7 @@ public class timer1 : MonoBehaviour
         {
             hp -= 30;
             takedmg2 = false;
+            FindObjectOfType<TakenDamageScript>().StartDamageEffect();
         }
     }
     public void Takedmg3()
@@ -256,6 +258,7 @@ public class timer1 : MonoBehaviour
         {
             hp -= 20;
             takedmg3 = false;
+            FindObjectOfType<TakenDamageScript>().StartDamageEffect();
         }
     }
     public void Takedmg4()
@@ -265,6 +268,7 @@ public class timer1 : MonoBehaviour
         {
             hp -= 5;
             takedmg4 = false;
+            FindObjectOfType<TakenDamageScript>().StartDamageEffect();
         }
     }
     public void Takedmg5()
@@ -274,6 +278,7 @@ public class timer1 : MonoBehaviour
         {
             hp -= 45;
             takedmg5 = false;
+            FindObjectOfType<TakenDamageScript>().StartDamageEffect();
         }
     }
     public void Takedmg6()
@@ -283,6 +288,7 @@ public class timer1 : MonoBehaviour
         {
             hp -= 95;
             takedmg6 = false;
+            FindObjectOfType<TakenDamageScript>().StartDamageEffect();
         }
     }
 

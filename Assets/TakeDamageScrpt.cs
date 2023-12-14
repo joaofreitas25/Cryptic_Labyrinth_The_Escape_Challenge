@@ -29,16 +29,15 @@ public class TakenDamageScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-            StartCoroutine(TakeDamageEffect());
+        
     }
 
     private IEnumerator TakeDamageEffect() 
     {
-        intensity = 0.4f;
+        intensity = 0.8f;
 
         _vignette.enabled.Override(true);
-        _vignette.intensity.Override(0.4f);
+        _vignette.intensity.Override(0.8f);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -55,5 +54,10 @@ public class TakenDamageScript : MonoBehaviour
 
         _vignette.enabled.Override(false);
         yield break;
+    }
+
+    public void StartDamageEffect()
+    {
+        StartCoroutine(TakeDamageEffect());
     }
 }
