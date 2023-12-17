@@ -178,6 +178,7 @@ public class timer1 : MonoBehaviour
             if (currentTime.Hour >= 20 || currentTime.Hour <= 6)
             {
                 currentTime = DateTime.Now.Date + TimeSpan.FromHours(starthour);
+                hunger -= 20;
                 sleep = false;
                 print("yo");
             }
@@ -333,7 +334,7 @@ public class timer1 : MonoBehaviour
     public void cpuzzle1()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && img1)
+        if (Input.GetKeyDown(KeyCode.I) && img1)
         {
             CPuzzle1.Invoke();
 
@@ -352,7 +353,7 @@ public class timer1 : MonoBehaviour
     public void cpuzzle2()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && img2)
+        if (Input.GetKeyDown(KeyCode.I) && img2)
             CPuzzle2.Invoke();
 
     }
@@ -366,7 +367,7 @@ public class timer1 : MonoBehaviour
     public void cpuzzle3()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && img3)
+        if (Input.GetKeyDown(KeyCode.I) && img3)
             CPuzzle3.Invoke();
 
     }
@@ -380,7 +381,7 @@ public class timer1 : MonoBehaviour
     public void cpuzzle4()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && img4)
+        if (Input.GetKeyDown(KeyCode.I) && img4)
             CPuzzle4.Invoke();
 
     }
