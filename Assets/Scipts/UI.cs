@@ -49,6 +49,7 @@ public class timer1 : MonoBehaviour
     public bool img2 = false;
     public bool img3 = false;
     public bool img4 = false;
+    public bool imgletter = false;
 
     private void Awake()
     {
@@ -81,6 +82,7 @@ public class timer1 : MonoBehaviour
         cpuzzle2();
         cpuzzle3();
         cpuzzle4();
+        cletter();
         Debug.Log(In.Instance.inventory);
 
 
@@ -383,6 +385,20 @@ public class timer1 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I) && img4)
             CPuzzle4.Invoke();
+
+    }
+    public UnityEvent Letter;
+    public void letter()
+    {
+        imgletter = true;
+        Letter.Invoke();
+    }
+    public UnityEvent Cletter;
+    public void cletter()
+    {
+
+        if (Input.GetKeyDown(KeyCode.I) && imgletter)
+            Cletter.Invoke();
 
     }
 

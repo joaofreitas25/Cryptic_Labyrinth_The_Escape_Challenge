@@ -67,5 +67,11 @@ public class InventoryItemController : MonoBehaviour
             Debug.Log("Puzzle4");
 
         }
+        else if (Item.id == 8)
+        {
+            timer1.Instance.letter();
+            Debug.Log("Letter");
+
+        }
     }
 }
