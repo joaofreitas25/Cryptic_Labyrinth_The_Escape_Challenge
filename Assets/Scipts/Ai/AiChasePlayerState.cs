@@ -24,8 +24,6 @@ public class AiChasePlayerState : AiState
         hasPlayerInSight = false;
         attackDelayCoroutine = null;
        
-        agent.chaseSound.loop = true; 
-        agent.chaseSound.Play();
     }
 
     public void Update(AiAgent agent)
@@ -79,7 +77,6 @@ public class AiChasePlayerState : AiState
         {
             agent.StopCoroutine(attackDelayCoroutine);
             attackDelayCoroutine = null;
-            agent.chaseSound.Stop();
 
         }
     }

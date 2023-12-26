@@ -15,10 +15,10 @@ public class AiAgent : MonoBehaviour
     public Transform[] patrolPoints;
     public LayerMask playerLayer;
     public Player Player;
-    public AudioSource idleSound;
-    public AudioSource chaseSound;
-    public AudioSource attackSound;
-    public AudioSource patrolSound;
+    //public AudioSource idleSound;
+    //public AudioSource chaseSound;
+    //public AudioSource attackSound;
+    //public AudioSource patrolSound;
 
 
     //private int health; // Assuming the AI has 100 health initially

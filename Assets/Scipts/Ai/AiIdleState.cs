@@ -11,7 +11,6 @@ public class AiIdleState : AiState
     public void Enter(AiAgent agent)
     {
         
-        agent.idleSound.Play();
     }
     public void Update(AiAgent agent)
     {
@@ -31,7 +30,6 @@ public class AiIdleState : AiState
     }
     public void Exit(AiAgent agent)
     {
-        agent.idleSound.Stop();
     }
 
    
