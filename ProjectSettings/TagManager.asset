@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - spikes
+  - Obstacle
   layers:
   - Default
   - TransparentFX
