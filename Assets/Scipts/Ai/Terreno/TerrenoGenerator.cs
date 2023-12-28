@@ -29,7 +29,7 @@ public class TerrenoGenerator : MonoBehaviour
 
         if (grassPrefab.GetComponent<MeshFilter>() == null || grassPrefab.GetComponent<MeshRenderer>() == null)
         {
-            // Debug.LogError("MeshFilter or MeshRenderer component not found on grassPrefab.");
+            Debug.LogError("MeshFilter or MeshRenderer component not found on grassPrefab.");
             return;
         }
 
@@ -46,13 +46,22 @@ public class TerrenoGenerator : MonoBehaviour
                 AddObj(matrices, spawnPosition, i);
                 indexNum++;
 
-                if (indexNum >= 1000)
+                if (indexNum >= 10) // Alterado para fins de teste
                 {
                     batches.Add(matrices);
                     matrices = BuildNewBatch();
                     indexNum = 0;
+
+                    Debug.Log("Batch added. Total batches: " + batches.Count);
                 }
             }
+        }
+
+        // Adicione mensagens de depuração para verificar o número de matrizes geradas
+        Debug.Log("Total batches: " + batches.Count);
+        foreach (var batch in batches)
+        {
+            Debug.Log("Batch size: " + batch.Count);
         }
     }
 
@@ -60,8 +69,9 @@ public class TerrenoGenerator : MonoBehaviour
     {
         foreach (var batch in batches)
         {
+            // Adicione mensagens de depuração para verificar o desenho de instâncias
+            Debug.Log("Drawing instances. Batch size: " + batch.Count);
             Graphics.DrawMeshInstanced(grassMesh, 0, grassMaterial, batch);
-            // Debug.Log("Drawing instances");
         }
     }
 }

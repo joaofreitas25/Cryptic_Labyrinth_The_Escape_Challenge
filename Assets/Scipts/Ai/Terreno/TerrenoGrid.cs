@@ -83,7 +83,19 @@ public class TerrenoGrid : MonoBehaviour
                 for (int z = 0; z < grid.GetLength(1); z++)
                 {
                     if (grid[x, z].walkable)
+                    {
                         gridPositions[x, z] = grid[x, z].worldPosition;
+                        Debug.Log("Posição caminhável para vegetação: " + gridPositions[x, z]);
+                    }
+                }
+            }
+
+            // Verifique as posições antes de chamar GeneratePosition
+            for (int x = 0; x < gridPositions.GetLength(0); x++)
+            {
+                for (int z = 0; z < gridPositions.GetLength(1); z++)
+                {
+                    Debug.Log("Grid Position [" + x + ", " + z + "]: " + gridPositions[x, z]);
                 }
             }
 
@@ -91,9 +103,12 @@ public class TerrenoGrid : MonoBehaviour
         }
     }
 
+
     private bool IsPositionWalkable(Vector3 position)
     {
-        Collider[] colliders = Physics.OverlapSphere(position, nodeRadius);
+        float increasedRadius = nodeRadius * 3.0f; // Ajuste conforme necessário
+
+        Collider[] colliders = Physics.OverlapSphere(position, increasedRadius);
 
         foreach (var collider in colliders)
         {
@@ -105,6 +120,7 @@ public class TerrenoGrid : MonoBehaviour
 
         return true;
     }
+
 
     public class Node
     {

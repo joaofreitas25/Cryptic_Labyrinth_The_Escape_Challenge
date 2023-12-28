@@ -83,7 +83,7 @@ public class timer1 : MonoBehaviour
         cpuzzle3();
         cpuzzle4();
         cletter();
-        Debug.Log(In.Instance.inventory);
+        //Debug.Log(In.Instance.inventory);
 
 
         if (hunger < 0) hunger = 0;
@@ -162,12 +162,12 @@ public class timer1 : MonoBehaviour
     {
         if (currentTime.Hour == 9)
         {
-            print("Abre");
+            //print("Abre");
             OpenP.Invoke();
         }
         if (currentTime.Hour == 15)
         {
-            print("Fecha");
+            //print("Fecha");
             CloseP.Invoke();
         }
     }
