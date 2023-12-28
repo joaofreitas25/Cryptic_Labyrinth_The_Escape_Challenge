@@ -66,7 +66,9 @@ public class timer1 : MonoBehaviour
         hunger = 70;
         healthBar.SetMaxHealth(100,hp);
         hungerBar.SetMaxHealth(100, hunger);
-        
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
+
 
     }
 
