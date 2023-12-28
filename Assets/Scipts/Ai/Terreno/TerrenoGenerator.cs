@@ -43,16 +43,20 @@ public class TerrenoGenerator : MonoBehaviour
                 Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0f, Random.Range(-3f, 3f));
                 spawnPosition = position + randomOffset;
 
-                AddObj(matrices, spawnPosition, i);
-                indexNum++;
-
-                if (indexNum >= 10) // Alterado para fins de teste
+                // Verifique se a posição gerada está dentro dos limites da grade
+                if (IsPositionInsideGrid(spawnPosition, gridPositions))
                 {
-                    batches.Add(matrices);
-                    matrices = BuildNewBatch();
-                    indexNum = 0;
+                    AddObj(matrices, spawnPosition, i);
+                    indexNum++;
 
-                    Debug.Log("Batch added. Total batches: " + batches.Count);
+                    if (indexNum >= 10) // Alterado para fins de teste
+                    {
+                        batches.Add(matrices);
+                        matrices = BuildNewBatch();
+                        indexNum = 0;
+
+                        Debug.Log("Batch added. Total batches: " + batches.Count);
+                    }
                 }
             }
         }
@@ -63,6 +67,16 @@ public class TerrenoGenerator : MonoBehaviour
         {
             Debug.Log("Batch size: " + batch.Count);
         }
+    }
+
+    private bool IsPositionInsideGrid(Vector3 position, Vector3[,] gridPositions)
+    {
+        float minX = gridPositions[0, 0].x;
+        float minZ = gridPositions[0, 0].z;
+        float maxX = gridPositions[gridPositions.GetLength(0) - 1, gridPositions.GetLength(1) - 1].x;
+        float maxZ = gridPositions[gridPositions.GetLength(0) - 1, gridPositions.GetLength(1) - 1].z;
+
+        return position.x >= minX && position.x <= maxX && position.z >= minZ && position.z <= maxZ;
     }
 
     public void GenerateVegetation()
