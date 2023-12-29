@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Won.unity
     guid: cac42013bcf4e0d4d9000cb4e3e9de72
+  - enabled: 1
+    path: Assets/Scenes/Cutscene1.unity
+    guid: 6d0c4bd23e8ade443886e8d3b09a4017
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
