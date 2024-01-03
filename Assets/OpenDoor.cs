@@ -19,6 +19,7 @@ public class OpenDoor : MonoBehaviour
     public UnityEvent closekeypad;
     public UnityEvent showtext;
     public UnityEvent hidetext;
+    public UnityEvent playsound;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class OpenDoor : MonoBehaviour
             Time.timeScale = 1;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
+            playsound.Invoke();
         }
 
         if(codeTextValue.Length >= 7)

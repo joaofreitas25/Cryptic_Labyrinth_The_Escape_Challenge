@@ -19,8 +19,9 @@ public class OpenDoorNorth : MonoBehaviour
     public UnityEvent closekeypad;
     public UnityEvent showtext;
     public UnityEvent hidetext;
+    public UnityEvent playsound;
 
-    [SerializeField] private AudioSource doorOpenAudioSource = null;
+    //[SerializeField] private AudioSource doorOpenAudioSource = null;
     [SerializeField] private float delay = 0;
 
     // Start is called before the first frame update
@@ -42,7 +43,8 @@ public class OpenDoorNorth : MonoBehaviour
             Time.timeScale = 1;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
-           doorOpenAudioSource.Play();
+            //doorOpenAudioSource.Play();
+            playsound.Invoke();
         }
 
         if (codeTextValue.Length >= 7)
