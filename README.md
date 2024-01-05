@@ -35,7 +35,7 @@ No jogo eram necessários 2 tipos de inimigos, chasers e patrollers ou seja era 
 
 Para os chasers, ou quando o inimigo começa a perseguir o jogador é utilizado o NavMesh ou uma malha que contém uma representação simplificada do ambiente, indicando áreas acessíveis e navegáveis que neste caso seriam o labirinto e zonas inacessíveis que neste caso seria a “Safezone”.
 
-Depois antes de poder iniciar a sua perseguição é necessário definir o alvo da perseguição, que neste caso seria o jogador, após determinado o inimigo fará o cálculo do caminho mais curto a percorrer até ao alvo e tendo sempre em atenção obstáculos que possam dificultar a sua trajetória, estes cálculos são sempre feitos em tempo real/frame a frame permitindo assim se adaptar às mudanças de posição do jogador e a obstáculos que poderão surgir pelo caminho. 
+Depois, antes de poder iniciar a sua perseguição é necessário definir o alvo da perseguição, que neste caso seria o jogador, após determinado o inimigo fará o cálculo do caminho mais curto a percorrer até ao alvo e tendo sempre em atenção obstáculos que possam dificultar a sua trajetória, estes cálculos são sempre feitos em tempo real/frame a frame permitindo assim se adaptar às mudanças de posição do jogador e a obstáculos que poderão surgir pelo caminho. 
 
 Esta perseguição só será interrompida se o inimigo se encontrar relativamente perto do jogador, utilizando assim a máquina de estados anteriormente referida para transitar para um estado de ataque.
 ![NavMesh](https://github.com/joaofreitas25/Cryptic_Labyrinth_The_Escape_Challenge/assets/131669709/ab1982ce-7df4-46ed-8b0f-99f01b464c29)
