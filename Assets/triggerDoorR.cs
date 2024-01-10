@@ -20,7 +20,7 @@ public class triggerDoorR : MonoBehaviour
             print("yoyoyoyo");
         }
 
-        if (timer1.Instance.currentTime.Hour == 10 && timer1.Instance.currentTime.Minute == 0)
+        if (timer1.Instance.currentTime.Hour == 20 && timer1.Instance.currentTime.Minute == 0)
         {
             mydoor.Play("DoorCloseR", 0, 0.0f);
         }

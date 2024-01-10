@@ -166,7 +166,7 @@ namespace StarterAssets
 			}
 			else
 			{
-				SprintSpeed = 20.0f;
+				SprintSpeed = 12.0f;
 
 			}
 
